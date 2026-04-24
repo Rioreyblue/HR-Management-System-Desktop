@@ -8,11 +8,14 @@ Imports WpfMedia = System.Windows.Media
 Public Class frmDashboard
 
     Dim dtDivision As New DataTable
+    'added by rey
+    'Public UserIDList As New List(Of String)
+
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
         Call Statistics()
-        Call EmpoyeePieChart()
+        Call EmployeePieChart()
         Call LoadEmployeeRecords()
         'Call Analytics()
         'Call GenderPieChart()
@@ -192,73 +195,123 @@ Public Class frmDashboard
 
 
     'rey
-    Private Sub EmpoyeePieChart()
-        Dim employeeLabels As New List(Of String) From {"Present", "Absent", "Late", "Business Travel"}
-        Dim employeeCounts As New List(Of Integer) From {60, 10, 20, 10}
+    Private Sub EmployeePieChart()
+        Dim dt As DataTable = getEmployeeChart()
+
+        Dim countPresent As Integer = 1
+        Dim countLate As Integer = 2
+        Dim countLeave As Integer = 3
+        Dim countBusiness As Integer = 4
+
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+            Dim row As DataRow = dt.Rows(0)
+            Integer.TryParse(row("total_present").ToString(), countPresent)
+            Integer.TryParse(row("total_late").ToString(), countLate)
+            Integer.TryParse(row("total_on_business").ToString(), countBusiness)
+            Integer.TryParse(row("total_on_leave").ToString(), countLeave)
+        End If
+
+        Dim labelFormatter As Func(Of ChartPoint, String) =
+        Function(cp) String.Format("{0} ({1:P1})", cp.SeriesView.Title, cp.Participation)
 
         Dim seriesCollection As New SeriesCollection()
 
-        Dim presentPieSeries As New PieSeries With {
-            .Title = "Present",
-            .Values = New ChartValues(Of Integer)({employeeCounts(0)}),
-            .DataLabels = True,
-            .LabelPoint = Function(chartPoint) chartPoint.Y.ToString("N0")
-            }
-        Dim absentPieSeries As New PieSeries With {
-            .Title = "Absent",
-            .Values = New ChartValues(Of Integer)({employeeCounts(1)}),
-            .DataLabels = True,
-            .LabelPoint = Function(chartPoint) chartPoint.Y.ToString("N0")
-            }
-        Dim latePieSeries As New PieSeries With {
-            .Title = "Late",
-            .Values = New ChartValues(Of Integer)({employeeCounts(0)}),
-            .DataLabels = True,
-            .LabelPoint = Function(chartPoint) chartPoint.Y.ToString("N0")
-            }
-        Dim businessTravelPieSeries As New PieSeries With {
-            .Title = "Business Travel",
-            .Values = New ChartValues(Of Integer)({employeeCounts(0)}),
-            .DataLabels = True,
-            .LabelPoint = Function(chartPoint) chartPoint.Y.ToString("N0")
-            }
-        seriesCollection.Add(presentPieSeries)
-        seriesCollection.Add(absentPieSeries)
-        seriesCollection.Add(latePieSeries)
-        seriesCollection.Add(businessTravelPieSeries)
+        seriesCollection.Add(New PieSeries With {
+        .Title = "Present",
+        .Values = New ChartValues(Of Integer)({countPresent}),
+        .DataLabels = True,
+        .LabelPoint = labelFormatter
+    })
+
+        seriesCollection.Add(New PieSeries With {
+        .Title = "Late",
+        .Values = New ChartValues(Of Integer)({countLate}),
+        .DataLabels = True,
+        .LabelPoint = labelFormatter
+    })
+
+        seriesCollection.Add(New PieSeries With {
+        .Title = "On-Leave",
+        .Values = New ChartValues(Of Integer)({countLeave}),
+        .DataLabels = True,
+        .LabelPoint = labelFormatter
+    })
+
+        seriesCollection.Add(New PieSeries With {
+        .Title = "Business-Travel",
+        .Values = New ChartValues(Of Integer)({countBusiness}),
+        .DataLabels = True,
+        .LabelPoint = labelFormatter
+    })
 
         PieChart1.Series = seriesCollection
         PieChart1.LegendLocation = LegendLocation.Right
-        'PieChart1.ChartTitle = "Employee Attendance Status"
-
     End Sub
 
-    'dataGridView
-    Private Sub LoadEmployeeRecords()
+    'dataGridView rey
+    'Private Sub LoadEmployeeRecords()
+    '    Dim dtDisplay As New DataTable()
+    '    dtDisplay.Columns.Add("EMPLOYEE ID")
+    '    dtDisplay.Columns.Add("EMPLOYEE NAME")
+    '    dtDisplay.Columns.Add("REMARKS")
+    '    dtDisplay.Columns.Add("ATTENDANCE DATE")
 
+    '    Dim dtSource As DataTable = getEmployeeLogs()
+
+    '    If dtSource IsNot Nothing AndAlso dtSource.Rows.Count > 0 Then
+    '        For Each row As DataRow In dtSource.Rows
+
+    '            dtDisplay.Rows.Add(
+    '            row("idno").ToString(),
+    '            row("full_name").ToString(),
+    '            row("final_remarks").ToString(),
+    '            row("attdate").ToString()
+    '        )
+    '        Next
+    '    End If
+
+    '    dgvRecords.DataSource = dtDisplay
+    '    StyleGrid()
+    'End Sub
+    Private Sub LoadEmployeeRecords()
         Dim dtDisplay As New DataTable()
         dtDisplay.Columns.Add("EMPLOYEE ID")
         dtDisplay.Columns.Add("EMPLOYEE NAME")
         dtDisplay.Columns.Add("REMARKS")
-        dtDisplay.Columns.Add("DATE LOGS")
+        dtDisplay.Columns.Add("ATTENDANCE DATE")
 
 
-        Dim dtSource As DataTable = getEmployeeLogs()
+        Dim targetIDs As New List(Of String)
+        targetIDs.Add(ActiveUserID)
+
+
+        Dim dtSource As DataTable = getEmployeeLogs(targetIDs)
 
 
         If dtSource IsNot Nothing AndAlso dtSource.Rows.Count > 0 Then
             For Each row As DataRow In dtSource.Rows
+
+                Dim attDateRaw As String = row("attdate").ToString()
+                Dim formattedDate As String = attDateRaw
+
+                Dim tempDate As DateTime
+                If DateTime.TryParse(attDateRaw, tempDate) Then
+                    formattedDate = tempDate.ToString("MMM dd, yyyy")
+                End If
+
                 dtDisplay.Rows.Add(
                 row("idno").ToString(),
-                row("full_name").ToString(),
+                row("full_name").ToString().ToUpper(),
                 row("final_remarks").ToString(),
-                row("attdate").ToString()
+                formattedDate
             )
             Next
         End If
 
 
         dgvRecords.DataSource = dtDisplay
+        dgvRecords.AutoGenerateColumns = True
+
         StyleGrid()
     End Sub
 
@@ -269,7 +322,7 @@ Public Class frmDashboard
             .CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
             .GridColor = WinColor.FromArgb(230, 230, 230)
 
-            ' Header Appearance
+            ' Header
             .EnableHeadersVisualStyles = False
             .ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
             .ColumnHeadersDefaultCellStyle.BackColor = WinColor.FromArgb(52, 73, 94)
@@ -277,7 +330,7 @@ Public Class frmDashboard
             .ColumnHeadersDefaultCellStyle.Font = New WinFont("Segoe UI Semibold", 10)
             .ColumnHeadersHeight = 45
 
-            ' Row Appearance
+            ' Row 
             .DefaultCellStyle.Font = New WinFont("Segoe UI", 9)
             .DefaultCellStyle.SelectionBackColor = WinColor.FromArgb(235, 243, 255)
             .DefaultCellStyle.SelectionForeColor = WinColor.FromArgb(0, 120, 215)
@@ -290,29 +343,6 @@ Public Class frmDashboard
             .AllowUserToAddRows = False
         End With
     End Sub
-
-    'loop ver
-    'Private Sub EmpoyeePieChart()
-    '    Dim employeeLabels As New List(Of String) From {"Present", "Absent", "Late", "Business Travel"}
-    '    Dim employeeCounts As New List(Of Integer) From {60, 10, 20, 10}
-
-    '    Dim seriesCollection As New SeriesCollection()
-
-    '    For i As Integer = 0 To employeeLabels.Count - 1
-    '        seriesCollection.Add(New PieSeries With {
-    '        .Title = employeeLabels(i),
-    '        .Values = New ChartValues(Of Integer)({employeeCounts(i)}),
-    '        .DataLabels = True,
-    '        .LabelPoint = Function(chartPoint) String.Format("{0} ({1})", chartPoint.SeriesView.Title, chartPoint.Y)
-    '    })
-    '    Next
-
-    '    'Chart nako
-    '    PieChart1.Series = seriesCollection
-
-    '    'location
-    '    PieChart1.LegendLocation = LegendLocation.Bottom
-    'End Sub
 
     'com
     'Private Sub GenderPieChart()

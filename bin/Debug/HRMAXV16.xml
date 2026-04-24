@@ -1,0 +1,870 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HRMAXV16
+</name>
+</assembly>
+<members>
+<member name="T:HRMAXV16.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources._String">
+<summary>
+  Looks up a localized string similar to #d63031.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.add_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.add_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.administration_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.affiliate_marketing_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.ambulance_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.analytics_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.armando">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.asset_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.atm_card_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.calendar_clock_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.camera_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.checklist_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.clipboard_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.clock_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.close">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.close_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.close_white_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.close_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.cogwheel_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.contacts_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.contract_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.csv_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.delete_white_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.delete_white_161">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.delete_white_18">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.delete_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.download">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.drivers_license_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.edit_white_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.edit_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.exchange_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.folder_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.folders__32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.graduation_hat_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.health_insurance_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hospital_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hourglass_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hr_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hrmax">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hrmax_main">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hrmax_outsourcing">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hrmax1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.hrmax2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icnons08_delete_white_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.ICON_CERRARF">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_close_25">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_close_251">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_delete_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_delete_file_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_edit_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_google_play_music_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_image_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_remove_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_remove_image_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_save_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_settings_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.icons8_view_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.injuries_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.job_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.job_offer_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.loading">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.longevity_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.management_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.maternity_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.menu_bars">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.money_sack_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.new_employee">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.nexen">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.No_image_available">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.No_image_available1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_1_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_2_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_3_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_4_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_5_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.number_6_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.open_folder">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.open_folder__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pagibig_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pdf_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pencil_16px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.performance_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pie_chart">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pie_chart_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pie_chart_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.pie_chart_321">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.Pinoy_Coop_Logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.Pinoy_Coop_Logo_Full_Color_Primary_1536x408">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus__24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus__24png">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus_white_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus_white_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus_white_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.plus1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.policy_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.poweredby_hrmax">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.print_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.print_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.print_32px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.printer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.printer_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.profession_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.profile_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.profile_pic">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.profit_growth_64">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.question_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.republic_of_the_philippines_social_security_system_seeklogo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.republic_of_the_philippines_social_security_system_seeklogo1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.republic_of_the_philippines_social_security_system_seeklogo2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.ribbon_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.sack_dollar_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.save_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.schedule_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.search">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.setting">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.skills_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.test">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.test_removebg_preview">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.time_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.train_station_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.training_24">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.travel_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.undraw_Contact_us_re_4qqt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.undraw_Credit_card_re_blml">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_avatar_64">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_employment_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_one_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_pay_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_salary_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_time_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_woman">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.user_woman128px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.users_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.video_conference_32px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.wages_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:HRMAXV16.My.Resources.Resources.wrench">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmployeeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtHiredEmployeeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtBasicRateListingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtCertificateListingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmergencyContactDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtJobStatusListingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmployeeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtHiredEmployeeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtBasicRateListingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtCertificateListingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmergencyContactRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtJobStatusListingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmployeeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtHiredEmployeeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtBasicRateListingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtCertificateListingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtEmergencyContactRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet1.dtJobStatusListingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtEarningsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtPayrollDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtEarningsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtPayrollRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtEarningsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HRMAXV16.DataSet2.dtPayrollRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="M:HRMAXV16.modHrmaxFunctions.GenerateExcelReport(System.Data.DataTable,System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+ <summary>
+ Generic Reusable Excel Export Function
+ Exports a DataTable to Excel with customizable headers and footers
+ </summary>
+ <param name="dt">DataTable containing the data to export</param>
+ <param name="fileName">Name of the output file (without extension)</param>
+ <param name="reportTitle">Title of the report to display in Excel</param>
+ <param name="companyName">Company name to display in header</param>
+ <param name="companyAddress">Company address (optional)</param>
+ <param name="companyContact">Company contact info (optional)</param>
+ <param name="additionalParams">Optional dictionary for additional parameters to display</param>
+ <param name="footerText">Optional footer text (e.g., total records)</param>
+</member>
+</members>
+</doc>

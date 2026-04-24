@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9BEDB4B-FC3D-416B-81AF-75881682E0BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>HRMAXV16.modMain</StartupObject>
+    <RootNamespace>HRMAXV16</RootNamespace>
+    <AssemblyName>HRMAXV16</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\ARMANDO\HRMAX_BUILD\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HRMAXV16.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HRMAXV16.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>985AB4922C5EA1EC7ACA89A7D3CB7A8488978A0A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HRMAXV16_4_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\.dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NxnControls">
+      <HintPath>..\.dll\NxnControls.dll</HintPath>
+    </Reference>
+    <Reference Include="NXNParsing, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\.dll\NXNParsing.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlViewer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=98d963a3ed6bf418" />
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\classComboBox.vb" />
+    <Compile Include="Class\classEmployee.vb" />
+    <Compile Include="Class\classTimekeeping.vb" />
+    <Compile Include="Class\classTimer.vb" />
+    <Compile Include="Designer\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\DataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\drReportViewer.Designer.vb">
+      <DependentUpon>drReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\drReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDI_Main.Designer.vb">
+      <DependentUpon>frmMDI_Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMDI_Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransparentBGV.Designer.vb">
+      <DependentUpon>frmTransparentBGV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransparentBGV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.designer.vb">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\DataGridViewCalendarColumn.vb" />
+    <Compile Include="Helper\NXGComboBoxExtension.vb" />
+    <Compile Include="Helper\NxNDataGridViewMultiColumnCombo.vb" />
+    <Compile Include="Hiring\frmApplicantExamination.Designer.vb">
+      <DependentUpon>frmApplicantExamination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmApplicantExamination.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmApplicantListing.Designer.vb">
+      <DependentUpon>frmApplicantListing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmApplicantListing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmApplicantProfile.Designer.vb">
+      <DependentUpon>frmApplicantProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmApplicantProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmCreateJob.Designer.vb">
+      <DependentUpon>frmCreateJob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmCreateJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationEssay.Designer.vb">
+      <DependentUpon>frmExaminationEssay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationEssay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationInput.Designer.vb">
+      <DependentUpon>frmExaminationInput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationInput.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMain.Designer.vb">
+      <DependentUpon>frmExaminationMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMenu.Designer.vb">
+      <DependentUpon>frmExaminationMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMultipleChoice.Designer.vb">
+      <DependentUpon>frmExaminationMultipleChoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationMultipleChoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationSituation.Designer.vb">
+      <DependentUpon>frmExaminationSituation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmExaminationSituation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmHiringJob.Designer.vb">
+      <DependentUpon>frmHiringJob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmHiringJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmJobDashboard.Designer.vb">
+      <DependentUpon>frmJobDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmJobDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmSelectionLineup.Designer.vb">
+      <DependentUpon>frmSelectionLineup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmSelectionLineup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\frmSelectionLineupApplicant.Designer.vb">
+      <DependentUpon>frmSelectionLineupApplicant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\frmSelectionLineupApplicant.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCApplicantList.Designer.vb">
+      <DependentUpon>UCApplicantList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCApplicantList.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCAppliedPosition.Designer.vb">
+      <DependentUpon>UCAppliedPosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCAppliedPosition.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCJobAction.Designer.vb">
+      <DependentUpon>UCJobAction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCJobAction.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCSelectionLineup.Designer.vb">
+      <DependentUpon>UCSelectionLineup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCSelectionLineup.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCSelectionLineUpApplicant.Designer.vb">
+      <DependentUpon>UCSelectionLineUpApplicant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCSelectionLineUpApplicant.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UCSkills.Designer.vb">
+      <DependentUpon>UCSkills.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UCSkills.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hiring\UserControl1.Designer.vb">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Hiring\UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\ApplicantContacts.vb" />
+    <Compile Include="Model\ApplicantExamination.vb" />
+    <Compile Include="Model\ApplicantProfile.vb" />
+    <Compile Include="Model\ApplicantSkills.vb" />
+    <Compile Include="Model\ExaminationInput.vb" />
+    <Compile Include="Model\ExaminationMain.vb" />
+    <Compile Include="Model\ExaminationMultipleChoice.vb" />
+    <Compile Include="Model\ExaminationSituation.vb" />
+    <Compile Include="Model\JobAction.vb" />
+    <Compile Include="Model\ExaminationEssay.vb" />
+    <Compile Include="Model\MaintenanceExamEssay.vb" />
+    <Compile Include="Model\MaintenanceJob.vb" />
+    <Compile Include="Model\PayrollModel\EarningsConfiguration.vb" />
+    <Compile Include="Model\PayrollModel\MaintenanceMultiloan.vb" />
+    <Compile Include="Model\PayrollModel\PayrollCutoff.vb" />
+    <Compile Include="Model\VacantPositionApplication.vb" />
+    <Compile Include="Modules\modCheckedComboBox.vb" />
+    <Compile Include="Modules\modCombobox.vb" />
+    <Compile Include="Modules\modConnection.vb" />
+    <Compile Include="Modules\modDashboard.vb" />
+    <Compile Include="Modules\modDataType.vb" />
+    <Compile Include="Modules\modEmployee.vb" />
+    <Compile Include="Modules\modExcel.vb" />
+    <Compile Include="Modules\modFonts.vb" />
+    <Compile Include="Modules\modFormMethods.vb" />
+    <Compile Include="Modules\modFunctions.vb" />
+    <Compile Include="Modules\modHiring.vb" />
+    <Compile Include="Modules\modHRMAX.vb" />
+    <Compile Include="Modules\modHrmaxFunctions.vb" />
+    <Compile Include="Modules\modMain.vb" />
+    <Compile Include="Modules\modPayroll.vb" />
+    <Compile Include="Modules\modQuery.vb" />
+    <Compile Include="Modules\modReport.vb" />
+    <Compile Include="Modules\modStringExtensions.vb" />
+    <Compile Include="Modules\modTimeKeeping.vb" />
+    <Compile Include="Modules\MyFormula.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmAmortizedConfiguration.Designer.vb">
+      <DependentUpon>frmAmortizedConfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmAmortizedConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmEarningsConfiguration.Designer.vb">
+      <DependentUpon>frmEarningsConfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmEarningsConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmMaintenanceCutoff.Designer.vb">
+      <DependentUpon>frmMaintenanceCutoff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmMaintenanceCutoff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptAlphaList.Designer.vb">
+      <DependentUpon>rptAlphaList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptAlphaList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBankTextFile.Designer.vb">
+      <DependentUpon>rptBankTextFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBankTextFile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBasicRateListing.Designer.vb">
+      <DependentUpon>rptBasicRateListing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBasicRateListing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBirthday.Designer.vb">
+      <DependentUpon>rptBirthday.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBirthday.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCertificateListing.Designer.vb">
+      <DependentUpon>rptCertificateListing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptCertificateListing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCustomReport.Designer.vb">
+      <DependentUpon>rptCustomReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptCustomReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptEmergencyContact.Designer.vb">
+      <DependentUpon>rptEmergencyContact.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptEmergencyContact.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptEmployeeJobStatus.Designer.vb">
+      <DependentUpon>rptEmployeeJobStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptEmployeeJobStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptLikeExcel.Designer.vb">
+      <DependentUpon>rptLikeExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptLikeExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptNewHiredEmployee.Designer.vb">
+      <DependentUpon>rptNewHiredEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptNewHiredEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPayroll_Register.Designer.vb">
+      <DependentUpon>rptPayroll_Register.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPayroll_Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPayslip.Designer.vb">
+      <DependentUpon>rptPayslip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPayslip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptService_Record.Designer.vb">
+      <DependentUpon>rptService_Record.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptService_Record.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Designer\drBasicRateListing.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drCertificateListing.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drCustomReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drEmergencyContact.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drJobStatusListing.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drNewHiredEmployee.rdlc" />
+    <EmbeddedResource Include="Designer\drPayslip.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\drReportViewer.resx">
+      <DependentUpon>drReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI_Main.resx">
+      <DependentUpon>frmMDI_Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransparentBGV.resx">
+      <DependentUpon>frmTransparentBGV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmApplicantExamination.resx">
+      <DependentUpon>frmApplicantExamination.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmApplicantListing.resx">
+      <DependentUpon>frmApplicantListing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmApplicantProfile.resx">
+      <DependentUpon>frmApplicantProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmCreateJob.resx">
+      <DependentUpon>frmCreateJob.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationEssay.resx">
+      <DependentUpon>frmExaminationEssay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationInput.resx">
+      <DependentUpon>frmExaminationInput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationMain.resx">
+      <DependentUpon>frmExaminationMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationMenu.resx">
+      <DependentUpon>frmExaminationMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationMultipleChoice.resx">
+      <DependentUpon>frmExaminationMultipleChoice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmExaminationSituation.resx">
+      <DependentUpon>frmExaminationSituation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmHiringJob.resx">
+      <DependentUpon>frmHiringJob.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmJobDashboard.resx">
+      <DependentUpon>frmJobDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmSelectionLineup.resx">
+      <DependentUpon>frmSelectionLineup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\frmSelectionLineupApplicant.resx">
+      <DependentUpon>frmSelectionLineupApplicant.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCApplicantList.resx">
+      <DependentUpon>UCApplicantList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCAppliedPosition.resx">
+      <DependentUpon>UCAppliedPosition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCJobAction.resx">
+      <DependentUpon>UCJobAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCSelectionLineup.resx">
+      <DependentUpon>UCSelectionLineup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCSelectionLineUpApplicant.resx">
+      <DependentUpon>UCSelectionLineUpApplicant.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UCSkills.resx">
+      <DependentUpon>UCSkills.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring\UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\frmAmortizedConfiguration.resx">
+      <DependentUpon>frmAmortizedConfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\frmEarningsConfiguration.resx">
+      <DependentUpon>frmEarningsConfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\frmMaintenanceCutoff.resx">
+      <DependentUpon>frmMaintenanceCutoff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAlphaList.resx">
+      <DependentUpon>rptAlphaList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBankTextFile.resx">
+      <DependentUpon>rptBankTextFile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBasicRateListing.resx">
+      <DependentUpon>rptBasicRateListing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBirthday.resx">
+      <DependentUpon>rptBirthday.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCertificateListing.resx">
+      <DependentUpon>rptCertificateListing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCustomReport.resx">
+      <DependentUpon>rptCustomReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptEmergencyContact.resx">
+      <DependentUpon>rptEmergencyContact.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptEmployeeJobStatus.resx">
+      <DependentUpon>rptEmployeeJobStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptLikeExcel.resx">
+      <DependentUpon>rptLikeExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPayroll_Register.resx">
+      <DependentUpon>rptPayroll_Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPayslip.resx">
+      <DependentUpon>rptPayslip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptService_Record.resx">
+      <DependentUpon>rptService_Record.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Designer\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Designer\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Designer\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Fonts\Montserrat-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Regular.ttf" />
+    <None Include="Designer\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Designer\DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Designer\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\poweredby_hrmax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrmax_outsourcing2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newloading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-google-play-music-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-view-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrmax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\injuries-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\affiliate-marketing-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ambulance-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contract-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivers-license-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folders.-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduation-hat-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\health-insurance-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video-conference-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contacts-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hospital-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ribbon-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skills-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\train-station-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\travel-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\performance-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job-offer-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maternity-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-pic.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office-man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department-of-defense-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appraisal-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset-management-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\training-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\health-report-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\incentive-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guard-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-care-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_bars.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\armando.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\No_image_available.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\No_image_available1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-1-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-2-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-3-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-4-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-5-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-6-24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undraw_Contact_us_re_4qqt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undraw_Credit_card_re_blml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\REPORTS\REPORTS.vbproj">
+      <Project>{57b57354-8f74-408e-b1c6-809a5662b35b}</Project>
+      <Name>REPORTS</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pinoy-Coop-Logo_Full-Color-Primary-1536x408.png" />
+    <None Include="Resources\Pinoy-Coop-Logo1.png" />
+    <None Include="Resources\Pinoy-Coop-Logo.png" />
+    <None Include="Resources\hrmax_main.png" />
+    <None Include="Resources\plus_24.png" />
+    <None Include="Resources\plus._241.png" />
+    <None Include="Resources\plus._24.png" />
+    <None Include="Resources\save_24.png" />
+    <None Include="Resources\plus._24png.png" />
+    <None Include="Resources\add_white_24.png" />
+    <None Include="Resources\csv_white_243.png" />
+    <None Include="Resources\csv_white_242.png" />
+    <None Include="Resources\csv_white_24.png" />
+    <None Include="Resources\csv_white_241.png" />
+    <None Include="Resources\csv_white_24png.png" />
+    <None Include="Resources\csv.png" />
+    <None Include="Resources\pdf_white_24.png" />
+    <None Include="Resources\hrmax2.png" />
+    <None Include="Resources\hrmax1.png" />
+    <None Include="Resources\nexen.PNG" />
+    <None Include="Resources\camera-24px.png" />
+    <None Include="Resources\folder-24px.png" />
+    <None Include="Resources\exchange-24px.png" />
+    <None Include="Resources\ICON CERRARF.png" />
+    <None Include="Resources\plus-24px.png" />
+    <None Include="Resources\pencil-16px.png" />
+    <None Include="Resources\test-removebg-preview.png" />
+    <None Include="Resources\test.jpg" />
+    <None Include="Resources\close-24px.png" />
+    <None Include="Resources\print-24px.png" />
+    <None Include="Resources\hr icon.PNG" />
+    <None Include="Resources\longevity-24px.png" />
+    <None Include="Resources\policy-24px.png" />
+    <None Include="Resources\question-24px.png" />
+    <None Include="Resources\atm-card-24px.png" />
+    <None Include="Resources\user-woman128px.png" />
+    <None Include="Resources\user-woman.png" />
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrmax_main2.jpg" />
+    <None Include="Resources\hrmax_main2.png" />
+    <None Include="Resources\viber_image_2025-05-16_11-39-44-655.png" />
+    <None Include="Resources\republic-of-the-philippines-social-security-system-seeklogo.png" />
+    <None Include="Resources\republic-of-the-philippines-social-security-system-seeklogo1.png" />
+    <None Include="Resources\republic-of-the-philippines-social-security-system-seeklogo2.png" />
+    <None Include="Resources\pagibig-logo.png" />
+    <None Include="Resources\user-avatar-64.png" />
+    <None Include="Resources\profession-32.png" />
+    <None Include="Resources\pie-chart-32.png" />
+    <None Include="Resources\user-32.png" />
+    <None Include="Resources\schedule-32.png" />
+    <None Include="Resources\clock-32.png" />
+    <None Include="Resources\user-pay-32.png" />
+    <None Include="Resources\money-sack-32.png" />
+    <None Include="Resources\hourglass-32.png" />
+    <None Include="Resources\calendar-clock-32.png" />
+    <None Include="Resources\users-32.png" />
+    <None Include="Resources\user-one-32.png" />
+    <None Include="Resources\user-employment-32.png" />
+    <None Include="Resources\user-salary-32.png" />
+    <None Include="Resources\user-time-32.png" />
+    <None Include="Resources\open-folder.png" />
+    <None Include="Resources\open-folder %281%29.png" />
+    <None Include="Resources\wrench.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\plus-white-32.png" />
+    <None Include="Resources\plus-white-24.png" />
+    <None Include="Resources\plus-white-16.png" />
+    <None Include="Resources\pie-chart.png" />
+    <None Include="Resources\pie-chart-321.png" />
+    <None Include="Resources\management-32.png" />
+    <None Include="Resources\time-32.png" />
+    <None Include="Resources\wages-32.png" />
+    <None Include="Resources\printer-32.png" />
+    <None Include="Resources\administration-32.png" />
+    <None Include="Resources\cogwheel-32.png" />
+    <None Include="Resources\close-white-16.png" />
+    <None Include="Resources\close-white-24.png" />
+    <None Include="Resources\profit-growth-64.png" />
+    <None Include="Resources\edit-white-24.png" />
+    <None Include="Resources\edit-white-16.png" />
+    <None Include="Resources\delete-white-16.png" />
+    <None Include="Resources\delete-white-24.png" />
+    <None Include="Resources\icons8-delete-20.png" />
+    <None Include="Resources\delete-white-18.png" />
+    <None Include="Resources\icnons08-delete-white-16.png" />
+    <None Include="Resources\delete-white-161.png" />
+    <None Include="Resources\job-24.png" />
+    <None Include="Resources\icons8-delete-file-20.png" />
+    <None Include="Resources\icons8-remove-image-20.png" />
+    <None Include="Resources\icons8-image-20.png" />
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

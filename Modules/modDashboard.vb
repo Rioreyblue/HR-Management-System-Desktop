@@ -151,28 +151,92 @@ Module modDashboard
     End Function
 
     'rey
-    Public Function getEmployeeLogs() As DataTable
+    'for data grid
+    Public Function getEmployeeChart() As DataTable
         Dim dtable As New DataTable
         Try
-
             Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
             MC = "DASH06"
 
-
-            ActiveUserID = "083171"
+            Dim dateNow As String = DateTime.Now.ToString("dd-MM-yyyy")
 
             jStr_Input = "{" + """token" + """:""" + Token + """," &
-                  """" + "varYear" + """:""" + 2024.ToString + """," &
-                  """" + "varDateNow" + """:""" + CDate(Now) + """," &
-                  """" + "ActiveUserID" + """:""" + ActiveUserID + """," &
-                  """" + "MC" + """:""" + MC + """}"
+                         """" + "varDateNow" + """:""" + CDate(Now) + """," &
+                         """" + "MC" + """:""" + MC + """}"
 
             dtable = ws.JsonStr2DTable(jStr_Input,
-                                        ServerTxt & ActiveFrm,
-                                        "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
-
+                                    ServerTxt & ActiveFrm,
+                                    "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
 
             If IsNothing(dtable) OrElse dtable.Columns.Count = 0 Then
+                dtable = New DataTable
+                With dtable.Columns
+                    .Add("total_present", GetType(String))
+                    .Add("total_late", GetType(String))
+                    .Add("total_on_leave", GetType(String))
+                    .Add("total_on_business", GetType(String))
+                End With
+            End If
+
+        Catch ex As Exception
+        End Try
+        Return dtable
+    End Function
+
+    'Public Function getEmployeeLogs() As DataTable
+    '    Dim dtable As New DataTable
+    '    Try
+    '        Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+    '        MC = "DASH07"
+
+    '        Dim dateNow As String = DateTime.Now.ToString("dd-MM-yyyy")
+
+    '        jStr_Input = "{" + """token" + """:""" + Token + """," &
+    '        """" + "varYear" + """:""" + 2026.ToString + """," &
+    '        """" + "ActiveUserID" + """:""" + ActiveUserID + """," &
+    '              """" + "MC" + """:""" + MC + """}"
+
+    '        dtable = ws.JsonStr2DTable(jStr_Input,
+    '                                ServerTxt & ActiveFrm,
+    '                                "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+
+    '        If IsNothing(dtable) OrElse dtable.Columns.Count = 0 Then
+    '            dtable = New DataTable
+    '            With dtable.Columns
+    '                .Add("idno", GetType(String))
+    '                .Add("full_name", GetType(String))
+    '                .Add("final_remarks", GetType(String))
+    '                .Add("attdate", GetType(String))
+    '            End With
+    '        End If
+
+    '    Catch ex As Exception
+    '    End Try
+    '    Return dtable
+    'End Function
+    Public Function getEmployeeLogs(ByVal userIDs As List(Of String)) As DataTable
+        Dim dtable As New DataTable
+        Try
+            Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+            MC = "DASH07"
+
+            ' Convert the List of IDs into a JSON array format: ["101","102"]
+            Dim jsonIDs As String = "[" & String.Join(",", userIDs.Select(Function(id) """" & id & """")) & "]"
+
+            ' Build the JSON Input string
+            jStr_Input = "{" &
+                         """token"":""" & Token & """," &
+                         """varYear"":""2026""," &
+                         """ActiveUserID"":" & jsonIDs & "," & ' Note: No quotes around jsonIDs because it's an array []
+                         """MC"":""" & MC & """" &
+                         "}"
+
+            dtable = ws.JsonStr2DTable(jStr_Input,
+                                     ServerTxt & ActiveFrm,
+                                     "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+
+            ' Default columns if no data returned
+            If dtable Is Nothing OrElse dtable.Columns.Count = 0 Then
                 dtable = New DataTable
                 With dtable.Columns
                     .Add("idno", GetType(String))
@@ -183,7 +247,7 @@ Module modDashboard
             End If
 
         Catch ex As Exception
-
+            ' Log error here
         End Try
         Return dtable
     End Function
