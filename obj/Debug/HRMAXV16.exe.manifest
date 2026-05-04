@@ -162,14 +162,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HRMAXV16.exe" size="18639872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HRMAXV16.exe" size="19107328">
       <assemblyIdentity name="HRMAXV16" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MYQygSGiRnJhHt7ixb3MKhNQQR+jCAU5nwrFVnsf8II=</dsig:DigestValue>
+        <dsig:DigestValue>ZFzNs/0aK0rufMyrMJsGFMsyBCzS4ys6ma6wtzS8Y3g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

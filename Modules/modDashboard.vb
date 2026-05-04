@@ -150,15 +150,15 @@ Module modDashboard
         Return dtable
     End Function
 
-    'rey
-    'for data grid
+    'rey task
+    'for chart
     Public Function getEmployeeChart() As DataTable
         Dim dtable As New DataTable
         Try
             Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
             MC = "DASH06"
 
-            Dim dateNow As String = DateTime.Now.ToString("dd-MM-yyyy")
+            Dim dateParam As String = DateTime.Now.ToString("yyyy-MM-dd")
 
             jStr_Input = "{" + """token" + """:""" + Token + """," &
                          """" + "varDateNow" + """:""" + CDate(Now) + """," &
@@ -168,13 +168,13 @@ Module modDashboard
                                     ServerTxt & ActiveFrm,
                                     "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
 
-            If IsNothing(dtable) OrElse dtable.Columns.Count = 0 Then
+            If dtable Is Nothing OrElse dtable.Columns.Count = 0 Then
                 dtable = New DataTable
                 With dtable.Columns
-                    .Add("total_present", GetType(String))
-                    .Add("total_late", GetType(String))
-                    .Add("total_on_leave", GetType(String))
-                    .Add("total_on_business", GetType(String))
+                    .Add("total_absent", GetType(Integer))
+                    .Add("total_present", GetType(Integer))
+                    .Add("total_sick", GetType(Integer))
+                    .Add("total_business", GetType(Integer))
                 End With
             End If
 
@@ -183,71 +183,33 @@ Module modDashboard
         Return dtable
     End Function
 
-    'Public Function getEmployeeLogs() As DataTable
-    '    Dim dtable As New DataTable
-    '    Try
-    '        Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
-    '        MC = "DASH07"
-
-    '        Dim dateNow As String = DateTime.Now.ToString("dd-MM-yyyy")
-
-    '        jStr_Input = "{" + """token" + """:""" + Token + """," &
-    '        """" + "varYear" + """:""" + 2026.ToString + """," &
-    '        """" + "ActiveUserID" + """:""" + ActiveUserID + """," &
-    '              """" + "MC" + """:""" + MC + """}"
-
-    '        dtable = ws.JsonStr2DTable(jStr_Input,
-    '                                ServerTxt & ActiveFrm,
-    '                                "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
-
-    '        If IsNothing(dtable) OrElse dtable.Columns.Count = 0 Then
-    '            dtable = New DataTable
-    '            With dtable.Columns
-    '                .Add("idno", GetType(String))
-    '                .Add("full_name", GetType(String))
-    '                .Add("final_remarks", GetType(String))
-    '                .Add("attdate", GetType(String))
-    '            End With
-    '        End If
-
-    '    Catch ex As Exception
-    '    End Try
-    '    Return dtable
-    'End Function
-    Public Function getEmployeeLogs(ByVal userIDs As List(Of String)) As DataTable
+    'rey task logs
+    Public Function getEmployeeLogs() As DataTable
         Dim dtable As New DataTable
         Try
             Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
             MC = "DASH07"
 
-            ' Convert the List of IDs into a JSON array format: ["101","102"]
-            Dim jsonIDs As String = "[" & String.Join(",", userIDs.Select(Function(id) """" & id & """")) & "]"
-
-            ' Build the JSON Input string
-            jStr_Input = "{" &
-                         """token"":""" & Token & """," &
-                         """varYear"":""2026""," &
-                         """ActiveUserID"":" & jsonIDs & "," & ' Note: No quotes around jsonIDs because it's an array []
-                         """MC"":""" & MC & """" &
-                         "}"
+            jStr_Input = "{" + """token" + """:""" + Token + """," &
+                         """" + "MC" + """:""" + MC + """}"
 
             dtable = ws.JsonStr2DTable(jStr_Input,
                                      ServerTxt & ActiveFrm,
                                      "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
 
-            ' Default columns if no data returned
             If dtable Is Nothing OrElse dtable.Columns.Count = 0 Then
                 dtable = New DataTable
                 With dtable.Columns
                     .Add("idno", GetType(String))
+                    .Add("divcode", GetType(String))
                     .Add("full_name", GetType(String))
-                    .Add("final_remarks", GetType(String))
+                    .Add("remarks", GetType(String))
                     .Add("attdate", GetType(String))
+                    .Add("trail", GetType(String))
                 End With
             End If
 
         Catch ex As Exception
-            ' Log error here
         End Try
         Return dtable
     End Function

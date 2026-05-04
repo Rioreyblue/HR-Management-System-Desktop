@@ -319,4 +319,10 @@ Public Class frmMain
             frm.ShowDialog()
         End Using
     End Sub
+
+    Private Sub btnDeductionConfiguration_Click(sender As Object, e As EventArgs) Handles btnDeductionConfiguration.Click
+        Using frm As New frmDeductionConfigurations
+            frm.ShowDialog()
+        End Using
+    End Sub
 End Class

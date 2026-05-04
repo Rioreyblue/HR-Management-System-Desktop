@@ -573,3 +573,4 @@ C:\OJT_Projrct_Rey\APPRES\HRMAXV16\HRMAXV16\obj\Debug\HRMAXV16.application
 C:\OJT_Projrct_Rey\APPRES\HRMAXV16\HRMAXV16\obj\Debug\HRMAXV16.vbproj.Up2Date
 C:\OJT_Projrct_Rey\APPRES\HRMAXV16\HRMAXV16\obj\Debug\HRMAXV16.frmAmortizedConfiguration.resources
 C:\OJT_Projrct_Rey\APPRES\HRMAXV16\HRMAXV16\obj\Debug\HRMAXV16.frmEarningsConfiguration.resources
+C:\OJT_Projrct_Rey\APPRES\HRMAXV16\HRMAXV16\obj\Debug\HRMAXV16.frmDeductionConfigurations.resources

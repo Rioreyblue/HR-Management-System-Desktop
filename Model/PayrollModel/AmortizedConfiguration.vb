@@ -1,6 +1,6 @@
 ﻿Imports Newtonsoft.Json
 
-Public Class MaintenanceMultiloan
+Public Class AmortizedConfiguration
     <JsonProperty("loan_id")>
     Public Property LoanId As String = ""
 
@@ -27,7 +27,7 @@ Public Class MaintenanceMultiloan
         End If
 
         If String.IsNullOrWhiteSpace(Me.LoanDesc) OrElse Me.LoanDesc = "" Then
-            Return (False, "Please enter a Loan Description.")
+            Return (False, "Please enter a Amortized Description.")
         End If
 
         ' Optional: Add validation for GL Account if it is mandatory in your UI

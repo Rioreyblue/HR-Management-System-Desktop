@@ -306,11 +306,11 @@ Module modHiring
 
     'rey task
 #Region "Armotized Configuration"
-    Public Function GetMultiLoanData() As List(Of MaintenanceMultiloan)
+    Public Function GetAmortizedConfiguration() As List(Of AmortizedConfiguration)
         Try
-            ActiveFrm = "frmMultiLoan.php"
+            ActiveFrm = "frmAmortizedConfiguration.php"
             Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
-            MC = "MLOAN01"
+            MC = "AMORT01"
 
             Dim inputData = New With {.token = Token, .MC = MC}
             Dim jStr_Input As String = JsonConvert.SerializeObject(inputData)
@@ -319,18 +319,18 @@ Module modHiring
 
             If dtable IsNot Nothing AndAlso dtable.Rows.Count > 0 Then
                 Dim json As String = JsonConvert.SerializeObject(dtable)
-                Return JsonConvert.DeserializeObject(Of List(Of MaintenanceMultiloan))(json)
+                Return JsonConvert.DeserializeObject(Of List(Of AmortizedConfiguration))(json)
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Failed to load Multi-Loan Configuration." & vbCrLf & vbCrLf &
+            MessageBox.Show("Failed to load Amortized Configuration." & vbCrLf & vbCrLf &
                             "Error: " & ex.Message,
                             "Database Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error)
         End Try
 
-        Return New List(Of MaintenanceMultiloan)()
+        Return New List(Of AmortizedConfiguration)()
     End Function
 #End Region
 
@@ -360,6 +360,37 @@ Module modHiring
         End Try
 
         Return New List(Of EarningsConfiguration)()
+    End Function
+
+#End Region
+
+    'REY TASK
+#Region "Deduction Configuration"
+    Public Function GetDeductionConfigurationData() As List(Of DeductionConfiguration)
+        Try
+            ActiveFrm = "frmDeductionConfiguration.php"
+            Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+            MC = "DEDUCT01"
+
+            Dim inputData = New With {.token = Token, .MC = MC}
+            Dim jStr_Input As String = JsonConvert.SerializeObject(inputData)
+
+            Dim dtable As DataTable = ws.JsonStr2DTable(jStr_Input, ServerTxt & ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
+
+            If dtable IsNot Nothing AndAlso dtable.Rows.Count > 0 Then
+                Dim json As String = JsonConvert.SerializeObject(dtable)
+                Return JsonConvert.DeserializeObject(Of List(Of DeductionConfiguration))(json)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Failed to load Deduction Configuration." & vbCrLf & vbCrLf &
+                            "Error: " & ex.Message,
+                            "Database Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+        End Try
+
+        Return New List(Of DeductionConfiguration)()
     End Function
 
 #End Region

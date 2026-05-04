@@ -6,7 +6,7 @@ Public Class frmEarningsConfiguration
     Private jStr_Input As String = "[]"
     Private ws As New WSConnection
     Private Token As String = String.Empty
-    Private ActiveFrm As String = "frmAmortizedConfiguration.php"
+    Private ActiveFrm As String = "frmEarningsConfiguration.php"
 
     Dim formUpdate As Boolean = False
     Dim formCtr As String = String.Empty
@@ -44,14 +44,15 @@ Public Class frmEarningsConfiguration
         chkNonTaxable.Checked = False
         chkDeductible.Checked = False
         chkMonthly.Checked = False
-        chkIncludeBanking.Checked = False
-        chkAutomaticCalculation.Checked = False
-        chkAddOnMonthly.Checked = False
-        chkAutomaticContraAccount.Checked = False
-        ckhFormulated.Checked = False
+        chkIncludeAlphaListing.Checked = False
+        chkAutomaticGross.Checked = False
+        chkInclBadsedOn.Checked = False
+        chkAutomaticContraAcct.Checked = False
+        chkFormulated.Checked = False
         txtIncomeCode.Enabled = True
         formUpdate = False
         formCtr = ""
+        btnAdd.Text = "Add"
     End Sub
 
     Private Sub ClearDisplay()
@@ -71,7 +72,7 @@ Public Class frmEarningsConfiguration
                 Dim lv_ As ListViewItem = New ListViewItem(item.IncCode)
                 lv_.SubItems.Add(item.Description)
 
-                If (item.NonTaxable = "true") Then
+                If item.NonTaxable = True Then
                     lv_.SubItems.Add("NON-TAXABLE")
                 Else
                     lv_.SubItems.Add("TAXABLE")
@@ -108,7 +109,6 @@ Public Class frmEarningsConfiguration
                 .Items.Add(lv_)
             Next
         End With
-        'q
     End Sub
 
     Private Sub chkMonthly_CheckedChanged(sender As Object, e As EventArgs) Handles chkMonthly.CheckedChanged
@@ -174,8 +174,8 @@ Public Class frmEarningsConfiguration
         txtFixed.Enabled = True
         btnClearDisplay.Enabled = True
     End Sub
-    Private Sub ckhFormulated_CheckedChanged(sender As Object, e As EventArgs) Handles ckhFormulated.CheckedChanged
-        If Not ckhFormulated.Checked Then
+    Private Sub ckhFormulated_CheckedChanged(sender As Object, e As EventArgs) Handles chkFormulated.CheckedChanged
+        If Not chkFormulated.Checked Then
             groupBoxFormulatedFalse()
             ClearDisplay()
         Else
@@ -183,7 +183,7 @@ Public Class frmEarningsConfiguration
         End If
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
             Dim input As New EarningsConfiguration()
             input.IncCode = txtIncomeCode.Text.Trim()
@@ -191,6 +191,9 @@ Public Class frmEarningsConfiguration
             input.CeilingAmount = txtCeilingAmount.Text.Trim()
             input.LrType = txtLrType.Text.Trim()
             input.Formula = lblDisplay.Text.Trim()
+
+            input.Trail = ActiveUser
+
             If chkNonTaxable.Checked Then
                 input.NonTaxable = "True"
             Else
@@ -206,7 +209,6 @@ Public Class frmEarningsConfiguration
             Else
                 input.CeilingConfig = "0"
             End If
-            'bottons payroll type
             If rbtnNormalPayroll.Checked = True Then
                 input.PayrollType = "1"
             Else
@@ -217,23 +219,27 @@ Public Class frmEarningsConfiguration
             Else
                 input.PayrollType = "1"
             End If
-            'back to checkboxes
-            If chkIncludeBanking.Checked Then
+            If chkIncludeAlphaListing.Checked Then
                 input.IncludeInAlphalisting = "True"
             Else
                 input.IncludeInAlphalisting = "False"
             End If
-            If chkAutomaticCalculation.Checked Then
+            If chkAutomaticGross.Checked Then
                 input.AutomaticGross = "True"
             Else
                 input.AutomaticGross = "False"
             End If
-            If chkAutomaticContraAccount.Checked Then
+            If chkInclBadsedOn.Checked Then
+                input.InclBasedOn = "True"
+            Else
+                input.InclBasedOn = "False"
+            End If
+            If chkAutomaticContraAcct.Checked Then
                 input.AutomaticContraAcct = "True"
             Else
                 input.AutomaticContraAcct = "False"
             End If
-            If ckhFormulated.Checked Then
+            If chkFormulated.Checked Then
                 input.Formulated = "True"
             Else
                 input.Formulated = "False"
@@ -253,9 +259,10 @@ Public Class frmEarningsConfiguration
 
             Dim jObj As JObject = JObject.FromObject(input)
             With jObj
-                .Add("MC", "EARN02")
+                .Add("MC", "DEDUCT02")
                 .Add("token", ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933"))
                 .Add("user", ActiveUser)
+                .Add("old_inccode", formCtr)
             End With
 
             Dim jStr_Input As String = JsonConvert.SerializeObject(jObj)
@@ -275,44 +282,20 @@ Public Class frmEarningsConfiguration
         End Try
     End Sub
 
-    Private Sub UpdateTool_Click(sender As Object, e As EventArgs)
+    Private Sub UpdateTool_Click(sender As Object, e As EventArgs) Handles UpdateTool.Click
         If lvEarningConfig.SelectedItems.Count > 0 Then
             Dim item As ListViewItem = lvEarningConfig.SelectedItems(0)
-            'txtIncomeCode.Text = item.SubItems(0).Text
-            'txtDescription.Text = item.SubItems(1).Text
-            'txtCeilingAmount.Text = item.SubItems(2).Text
-            'txtLrType.Text = item.SubItems(3).Text
-            'If item.SubItems(4).Text = "True" Then
-            '    chkNonTaxable.Checked = True
-            'Else
-            '    chkNonTaxable.Checked = False
-            'End If
-            'If item.SubItems(5).Text = "True" Then
-            '    chkDeductible.Checked = True
-            'Else
-            '    chkDeductible.Checked = False
-            'End If
-            'If item.SubItems(6).Text = "True" Then
-            '    rbtnNormalPayroll.Checked = True
-            'Else
-            '    rbtnSpecialPayroll.Checked = False
-            'End If
-            'If item.SubItems(7).Text = "True" Then
-            '    rbtnSpecialPayroll.Checked = True
-            'Else
-            '    rbtnNormalPayroll.Checked = False
-            'End If
+
+
             txtIncomeCode.Text = item.SubItems(0).Text
             txtDescription.Text = item.SubItems(1).Text
             lblDisplay.Text = item.SubItems(4).Text
             txtCeilingAmount.Text = item.SubItems(5).Text
             txtLrType.Text = item.SubItems(12).Text
-
-            chkNonTaxable.Checked = (item.SubItems(2).Text)
-            ckhFormulated.Checked = (item.SubItems(3).Text)
-            chkDeductible.Checked = (item.SubItems(6).Text)
-            chkIncludeBanking.Checked = (item.SubItems(7).Text)
-
+            chkNonTaxable.Checked = (item.SubItems(2).Text = "NON-TAXABLE")
+            chkDeductible.Checked = (item.SubItems(6).Text = "DEDUCTIBLE")
+            chkFormulated.Checked = (item.SubItems(3).Text = "*")
+            chkIncludeAlphaListing.Checked = (item.SubItems(7).Text = "TRUE")
             If item.SubItems(8).Text = "NORMAL" Then
                 rbtnNormalPayroll.Checked = True
                 rbtnSpecialPayroll.Checked = False
@@ -320,52 +303,18 @@ Public Class frmEarningsConfiguration
                 rbtnNormalPayroll.Checked = False
                 rbtnSpecialPayroll.Checked = True
             End If
+            chkAutomaticGross.Checked = (item.SubItems(9).Text = "TRUE")
+            chkInclBadsedOn.Checked = (item.SubItems(10).Text = "TRUE")
+            chkAutomaticContraAcct.Checked = (item.SubItems(11).Text = "TRUE")
+            chkMonthly.Checked = (item.SubItems(13).Text = "MONTHLY")
 
-            chkAutomaticCalculation.Checked = (item.SubItems(9).Text)
 
-
-            chkAutomaticContraAccount.Checked = (item.SubItems(11).Text)
-            chkMonthly.Checked = (item.SubItems(13).Text)
             formUpdate = True
             formCtr = item.SubItems(0).Text
             txtIncomeCode.Enabled = False
+            btnAdd.Text = "Update"
         End If
     End Sub
-
-    'Private Sub UpdateTool_Click(sender As Object, e As EventArgs)
-    '    If lvEarningConfig.SelectedItems.Count > 0 Then
-    '        Dim item As ListViewItem = lvEarningConfig.SelectedItems(0)
-
-    '        txtIncomeCode.Text = item.SubItems(0).Text
-    '        txtDescription.Text = item.SubItems(1).Text
-    '        lblDisplay.Text = item.SubItems(4).Text
-    '        txtCeilingAmount.Text = item.SubItems(5).Text
-    '        txtLrType.Text = item.SubItems(12).Text
-
-    '        chkNonTaxable.Checked = (item.SubItems(2).Text = "NON-TAXABLE")
-    '        ckhFormulated.Checked = (item.SubItems(3).Text = "*")
-    '        chkDeductible.Checked = (item.SubItems(6).Text = "DEDUCTIBLE")
-    '        chkIncludeBanking.Checked = (item.SubItems(7).Text = "TRUE")
-
-    '        If item.SubItems(8).Text = "NORMAL" Then
-    '            rbtnNormalPayroll.Checked = True
-    '            rbtnSpecialPayroll.Checked = False
-    '        Else
-    '            rbtnNormalPayroll.Checked = False
-    '            rbtnSpecialPayroll.Checked = True
-    '        End If
-
-    '        chkAutomaticCalculation.Checked = (item.SubItems(9).Text = "TRUE")
-
-
-    '        chkAutomaticContraAccount.Checked = (item.SubItems(11).Text = "TRUE")
-    '        chkMonthly.Checked = (item.SubItems(13).Text = "MONTHLY")
-
-    '        formUpdate = True
-    '        formCtr = item.SubItems(0).Text
-    '        txtIncomeCode.Enabled = False
-    '    End If
-    'End Sub
 
     Private Sub lvEarning_MouseClick(sender As Object, e As MouseEventArgs) Handles lvEarningConfig.MouseClick
         If e.Button = MouseButtons.Right Then
@@ -376,12 +325,13 @@ Public Class frmEarningsConfiguration
         End If
     End Sub
 
-    Private Sub DeleteTool_Click(sender As Object, e As EventArgs)
+    Private Sub DeleteTool_Click(sender As Object, e As EventArgs) Handles DeleteTool.Click
         If lvEarningConfig.SelectedItems.Count > 0 Then
             Dim item As ListViewItem = lvEarningConfig.SelectedItems(0)
             If MsgBox("Are you sure you want to delete?", vbQuestion + vbYesNo) = vbYes Then
                 DeleteEarningConfig(item.SubItems(0).Text)
             End If
+
         End If
     End Sub
 
@@ -392,12 +342,13 @@ Public Class frmEarningsConfiguration
 
             jStr_Input = "{" + """token" + """:""" + Token + """," &
                          """" + "var_del" + """:""" + var_del + """," &
+                         """" + "boolean" + """:""" + "False" + """," &
                          """" + "MC" + """:""" + MC + """}"
 
             Dim res As String = ws.JsonStr2JsonStr(jStr_Input, ServerTxt & ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
 
             If res = """sysmaint""" Then
-                MsgBox("Cannot delete system maintenance records.", vbExclamation)
+                MsgBox("Cannot delete Earning Setup records.", vbExclamation)
             ElseIf res = """done""" Then
                 MsgBox("Earnings Setup Successfully Deleted.", vbInformation)
                 Call Reload(1)
@@ -406,5 +357,4 @@ Public Class frmEarningsConfiguration
             MsgBox(ex.Message, vbCritical)
         End Try
     End Sub
-
 End Class

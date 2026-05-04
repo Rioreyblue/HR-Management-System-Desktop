@@ -8,8 +8,6 @@ Imports WpfMedia = System.Windows.Media
 Public Class frmDashboard
 
     Dim dtDivision As New DataTable
-    'added by rey
-    'Public UserIDList As New List(Of String)
 
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.FormBorderStyle = FormBorderStyle.None
@@ -194,124 +192,78 @@ Public Class frmDashboard
     End Sub
 
 
-    'rey
+    'rey task
     Private Sub EmployeePieChart()
         Dim dt As DataTable = getEmployeeChart()
 
-        Dim countPresent As Integer = 1
-        Dim countLate As Integer = 2
-        Dim countLeave As Integer = 3
-        Dim countBusiness As Integer = 4
+        Dim cAbsent As Integer = 2, cPresent As Integer = 4
+        Dim cSick As Integer = 3, cBusiness As Integer = 1
+
 
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
             Dim row As DataRow = dt.Rows(0)
-            Integer.TryParse(row("total_present").ToString(), countPresent)
-            Integer.TryParse(row("total_late").ToString(), countLate)
-            Integer.TryParse(row("total_on_business").ToString(), countBusiness)
-            Integer.TryParse(row("total_on_leave").ToString(), countLeave)
+            Integer.TryParse(row("total_absent").ToString(), cAbsent)
+            Integer.TryParse(row("total_present").ToString(), cPresent)
+            Integer.TryParse(row("total_sick").ToString(), cSick)
+            Integer.TryParse(row("total_business").ToString(), cBusiness)
         End If
 
         Dim labelFormatter As Func(Of ChartPoint, String) =
-        Function(cp) String.Format("{0} ({1:P1})", cp.SeriesView.Title, cp.Participation)
+        Function(cp) String.Format("{0}: {1} ({2:P1})", cp.SeriesView.Title, cp.Y, cp.Participation)
 
         Dim seriesCollection As New SeriesCollection()
 
-        seriesCollection.Add(New PieSeries With {
-        .Title = "Present",
-        .Values = New ChartValues(Of Integer)({countPresent}),
-        .DataLabels = True,
-        .LabelPoint = labelFormatter
-    })
+        Dim addSlice = Sub(title As String, value As Integer)
+                           If value > 0 Then
+                               seriesCollection.Add(New PieSeries With {
+                               .Title = title,
+                               .Values = New ChartValues(Of Integer)({value}),
+                               .DataLabels = True,
+                               .LabelPoint = labelFormatter
+                           })
+                           End If
+                       End Sub
 
-        seriesCollection.Add(New PieSeries With {
-        .Title = "Late",
-        .Values = New ChartValues(Of Integer)({countLate}),
-        .DataLabels = True,
-        .LabelPoint = labelFormatter
-    })
+        addSlice("Absent", cAbsent)
+        addSlice("Present", cPresent)
+        addSlice("Sick Leave", cSick)
+        addSlice("Business Travel", cBusiness)
+        'addSlice("Vacation Leave", cVacation)
+        'addSlice("Maternity Leave", cMaternity)
+        'addSlice("Late", cLate)
+        'addSlice("Holiday", cHoliday)
 
-        seriesCollection.Add(New PieSeries With {
-        .Title = "On-Leave",
-        .Values = New ChartValues(Of Integer)({countLeave}),
-        .DataLabels = True,
-        .LabelPoint = labelFormatter
-    })
-
-        seriesCollection.Add(New PieSeries With {
-        .Title = "Business-Travel",
-        .Values = New ChartValues(Of Integer)({countBusiness}),
-        .DataLabels = True,
-        .LabelPoint = labelFormatter
-    })
-
-        PieChart1.Series = seriesCollection
-        PieChart1.LegendLocation = LegendLocation.Right
+        chrtAttendance.Series = seriesCollection
+        chrtAttendance.LegendLocation = LegendLocation.Bottom
     End Sub
 
-    'dataGridView rey
-    'Private Sub LoadEmployeeRecords()
-    '    Dim dtDisplay As New DataTable()
-    '    dtDisplay.Columns.Add("EMPLOYEE ID")
-    '    dtDisplay.Columns.Add("EMPLOYEE NAME")
-    '    dtDisplay.Columns.Add("REMARKS")
-    '    dtDisplay.Columns.Add("ATTENDANCE DATE")
-
-    '    Dim dtSource As DataTable = getEmployeeLogs()
-
-    '    If dtSource IsNot Nothing AndAlso dtSource.Rows.Count > 0 Then
-    '        For Each row As DataRow In dtSource.Rows
-
-    '            dtDisplay.Rows.Add(
-    '            row("idno").ToString(),
-    '            row("full_name").ToString(),
-    '            row("final_remarks").ToString(),
-    '            row("attdate").ToString()
-    '        )
-    '        Next
-    '    End If
-
-    '    dgvRecords.DataSource = dtDisplay
-    '    StyleGrid()
-    'End Sub
+    'rey task 2
     Private Sub LoadEmployeeRecords()
         Dim dtDisplay As New DataTable()
         dtDisplay.Columns.Add("EMPLOYEE ID")
+        dtDisplay.Columns.Add("DIVCODE")
         dtDisplay.Columns.Add("EMPLOYEE NAME")
         dtDisplay.Columns.Add("REMARKS")
         dtDisplay.Columns.Add("ATTENDANCE DATE")
+        dtDisplay.Columns.Add("TRAIL")
 
-
-        Dim targetIDs As New List(Of String)
-        targetIDs.Add(ActiveUserID)
-
-
-        Dim dtSource As DataTable = getEmployeeLogs(targetIDs)
-
+        Dim dtSource As DataTable = getEmployeeLogs()
 
         If dtSource IsNot Nothing AndAlso dtSource.Rows.Count > 0 Then
             For Each row As DataRow In dtSource.Rows
 
-                Dim attDateRaw As String = row("attdate").ToString()
-                Dim formattedDate As String = attDateRaw
-
-                Dim tempDate As DateTime
-                If DateTime.TryParse(attDateRaw, tempDate) Then
-                    formattedDate = tempDate.ToString("MMM dd, yyyy")
-                End If
-
                 dtDisplay.Rows.Add(
                 row("idno").ToString(),
-                row("full_name").ToString().ToUpper(),
-                row("final_remarks").ToString(),
-                formattedDate
+                row("divcode").ToString(),
+                row("full_name").ToString(),
+                row("remarks").ToString(),
+                row("attdate").ToString(),
+                row("trail").ToString()
             )
             Next
         End If
 
-
         dgvRecords.DataSource = dtDisplay
-        dgvRecords.AutoGenerateColumns = True
-
         StyleGrid()
     End Sub
 
@@ -322,7 +274,6 @@ Public Class frmDashboard
             .CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
             .GridColor = WinColor.FromArgb(230, 230, 230)
 
-            ' Header
             .EnableHeadersVisualStyles = False
             .ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
             .ColumnHeadersDefaultCellStyle.BackColor = WinColor.FromArgb(52, 73, 94)
@@ -330,7 +281,6 @@ Public Class frmDashboard
             .ColumnHeadersDefaultCellStyle.Font = New WinFont("Segoe UI Semibold", 10)
             .ColumnHeadersHeight = 45
 
-            ' Row 
             .DefaultCellStyle.Font = New WinFont("Segoe UI", 9)
             .DefaultCellStyle.SelectionBackColor = WinColor.FromArgb(235, 243, 255)
             .DefaultCellStyle.SelectionForeColor = WinColor.FromArgb(0, 120, 215)
@@ -416,8 +366,6 @@ Public Class frmDashboard
     'End Sub
 
 
-
-
     Private Sub Analytics()
         For Each _dr In getTotalEmployees.Rows
             cntEmployee.Text = _dr("total_employee").ToString
@@ -434,5 +382,4 @@ Public Class frmDashboard
             cntTravel.Text = _dr("total_travel").ToString
         Next
     End Sub
-
 End Class

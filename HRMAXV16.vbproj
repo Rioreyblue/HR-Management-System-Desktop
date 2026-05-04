@@ -404,8 +404,9 @@
     <Compile Include="Model\ExaminationEssay.vb" />
     <Compile Include="Model\MaintenanceExamEssay.vb" />
     <Compile Include="Model\MaintenanceJob.vb" />
+    <Compile Include="Model\PayrollModel\DeductionConfiguration.vb" />
     <Compile Include="Model\PayrollModel\EarningsConfiguration.vb" />
-    <Compile Include="Model\PayrollModel\MaintenanceMultiloan.vb" />
+    <Compile Include="Model\PayrollModel\AmortizedConfiguration.vb" />
     <Compile Include="Model\PayrollModel\PayrollCutoff.vb" />
     <Compile Include="Model\VacantPositionApplication.vb" />
     <Compile Include="Modules\modCheckedComboBox.vb" />
@@ -454,6 +455,12 @@
       <DependentUpon>frmAmortizedConfiguration.vb</DependentUpon>
     </Compile>
     <Compile Include="Payroll\frmAmortizedConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmDeductionConfigurations.Designer.vb">
+      <DependentUpon>frmDeductionConfigurations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmDeductionConfigurations.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Payroll\frmEarningsConfiguration.Designer.vb">
@@ -662,6 +669,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payroll\frmAmortizedConfiguration.resx">
       <DependentUpon>frmAmortizedConfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\frmDeductionConfigurations.resx">
+      <DependentUpon>frmDeductionConfigurations.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payroll\frmEarningsConfiguration.resx">
       <DependentUpon>frmEarningsConfiguration.vb</DependentUpon>

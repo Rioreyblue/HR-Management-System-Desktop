@@ -407,20 +407,20 @@ Partial Class frmExaminationInput
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateTool, Me.DeleteTool})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(126, 56)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(215, 84)
         '
         'UpdateTool
         '
         Me.UpdateTool.Image = CType(resources.GetObject("UpdateTool.Image"), System.Drawing.Image)
         Me.UpdateTool.Name = "UpdateTool"
-        Me.UpdateTool.Size = New System.Drawing.Size(125, 26)
+        Me.UpdateTool.Size = New System.Drawing.Size(214, 26)
         Me.UpdateTool.Text = "Update"
         '
         'DeleteTool
         '
         Me.DeleteTool.Image = CType(resources.GetObject("DeleteTool.Image"), System.Drawing.Image)
         Me.DeleteTool.Name = "DeleteTool"
-        Me.DeleteTool.Size = New System.Drawing.Size(125, 26)
+        Me.DeleteTool.Size = New System.Drawing.Size(214, 26)
         Me.DeleteTool.Text = "Delete"
         '
         'frmExaminationInput

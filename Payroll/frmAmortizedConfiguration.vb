@@ -6,7 +6,7 @@ Public Class frmAmortizedConfiguration
     Private jStr_Input As String = "[]"
     Private ws As New WSConnection
     Private Token As String = String.Empty
-    Private ActiveFrm As String = "frmMultiLoan.php"
+    Private ActiveFrm As String = "frmAmortizedConfiguration.php"
 
     Dim formUpdate As Boolean = False
     Dim formCtr As String = String.Empty
@@ -28,7 +28,7 @@ Public Class frmAmortizedConfiguration
                 Case 1
                     Call classTimer.TimerStop(Timer1)
                     Call Clear()
-                    Call LoadMultiLoan(GetMultiLoanData())
+                    Call loadlvArmotizedDeduction(GetAmortizedConfiguration())
                     Call classTimer.CloseLoading(frmLoading)
                     Call classTimer.TimerReset()
                     lblcounter.Text = counter.ToString()
@@ -47,6 +47,7 @@ Public Class frmAmortizedConfiguration
         txtMCode.Enabled = True
         formUpdate = False
         formCtr = ""
+        btnSave.Text = "Add"
     End Sub
 
     Public Sub Reload(ByVal pAction As Integer)
@@ -56,8 +57,8 @@ Public Class frmAmortizedConfiguration
         End If
     End Sub
 
-    Public Sub LoadMultiLoan(ByVal pList As List(Of MaintenanceMultiloan))
-        With lvMultiLoan
+    Public Sub loadlvArmotizedDeduction(ByVal pList As List(Of AmortizedConfiguration))
+        With lvArmotizedDeduction
             .Items.Clear()
             For Each item In pList
                 Dim lv_ As ListViewItem = New ListViewItem(item.LoanId)
@@ -83,7 +84,7 @@ Public Class frmAmortizedConfiguration
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            Dim input As New MaintenanceMultiloan()
+            Dim input As New AmortizedConfiguration()
 
             input.LoanId = txtMCode.Text.Trim()
             input.LoanDesc = txtDescription.Text.Trim()
@@ -114,7 +115,7 @@ Public Class frmAmortizedConfiguration
 
             Dim jObj As JObject = JObject.FromObject(input)
             With jObj
-                .Add("MC", "MLOAN02")
+                .Add("MC", "AMORT02")
                 .Add("token", ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933"))
                 .Add("user", ActiveUser)
             End With
@@ -124,9 +125,9 @@ Public Class frmAmortizedConfiguration
 
             If res = """done""" Then
                 If input.IsUpdate = "False" Then
-                    MsgBox("Multi-Loan Setup Successfully Added !", vbInformation)
+                    MsgBox("Armortized Setup Successfully Added !", vbInformation)
                 Else
-                    MsgBox("Multi-Loan Setup Successfully Updated !", vbInformation)
+                    MsgBox("Armortized Setup Successfully Updated !", vbInformation)
                 End If
                 Call Reload(1)
             End If
@@ -137,27 +138,26 @@ Public Class frmAmortizedConfiguration
     End Sub
 
 
-    Private Sub lvMultiLoan_MouseClick(sender As Object, e As MouseEventArgs) Handles lvMultiLoan.MouseClick
+    Private Sub lvMultiLoan_MouseClick(sender As Object, e As MouseEventArgs) Handles lvArmotizedDeduction.MouseClick
         If e.Button = MouseButtons.Right Then
-            Dim focusedItem = lvMultiLoan.FocusedItem
+            Dim focusedItem = lvArmotizedDeduction.FocusedItem
             If focusedItem IsNot Nothing AndAlso focusedItem.Bounds.Contains(e.Location) Then
                 ContextMenuStrip1.Show(Cursor.Position)
             End If
         End If
     End Sub
 
-    Private Sub DeleteTool_Click(sender As Object, e As EventArgs)
-        If lvMultiLoan.SelectedItems.Count > 0 Then
-            Dim item As ListViewItem = lvMultiLoan.SelectedItems(0)
-            If MsgBox("Are you sure you want to delete?", vbQuestion + vbYesNo) = vbYes Then
-                DeleteMultiLoan(item.SubItems(0).Text)
-            End If
+    Private Sub DeleteTool_Click(sender As Object, e As EventArgs) Handles DeleteTool.Click
+        Dim var_del As String = lvArmotizedDeduction.FocusedItem.SubItems(0).Text
+        Dim item As ListViewItem = lvArmotizedDeduction.SelectedItems(0)
+        If MsgBox("Are you sure you want to Delete?", vbQuestion + vbYesNo) = vbYes Then
+            DeleteMultiLoan(item.SubItems(0).Text)
         End If
     End Sub
 
-    Private Sub UpdateTool_Click(sender As Object, e As EventArgs)
-        If lvMultiLoan.SelectedItems.Count > 0 Then
-            Dim item As ListViewItem = lvMultiLoan.SelectedItems(0)
+    Private Sub UpdateTool_Click(sender As Object, e As EventArgs) Handles UpdateTool.Click
+        If lvArmotizedDeduction.SelectedItems.Count > 0 Then
+            Dim item As ListViewItem = lvArmotizedDeduction.SelectedItems(0)
             txtMCode.Text = item.SubItems(0).Text
             txtDescription.Text = item.SubItems(1).Text
             txtTranType.Text = item.SubItems(2).Text
@@ -170,13 +170,14 @@ Public Class frmAmortizedConfiguration
             formUpdate = True
             formCtr = item.SubItems(0).Text
             txtMCode.Enabled = False
+            btnSave.Text = "Update"
         End If
     End Sub
 
 
     Private Sub DeleteMultiLoan(var_del As String)
         Try
-            Dim MC As String = "MLOAN03"
+            Dim MC As String = "AMORT03"
             Token = ws.xGenKey(ActiveFrm, "E4BCDCFDA0E6CFB3B35064D458E8C5A0034E6138FD440933")
 
             jStr_Input = "{" + """token" + """:""" + Token + """," &
@@ -188,7 +189,7 @@ Public Class frmAmortizedConfiguration
             If res = """sysmaint""" Then
                 MsgBox("Cannot delete system maintenance records.", vbExclamation)
             ElseIf res = """done""" Then
-                MsgBox("Multi-Loan Setup Successfully Deleted.", vbInformation)
+                MsgBox("Amortized Setup Successfully Deleted.", vbInformation)
                 Call Reload(1)
             End If
         Catch ex As Exception
